@@ -26,20 +26,22 @@
                                     <img src="{{asset('assets/images/logo-full.png')}}" alt="">
                                 </div>
                                 <h4 class="text-center mb-4">Sign in your account</h4>
-                                <form action="index.html">
+                                <form action="{{route('login')}}" method="post">
+                                    @csrf
+                                    @include('layouts.message')
                                     <div class="form-group">
                                         <label class="mb-1"><strong>Email</strong></label>
-                                        <input type="email" class="form-control" value="hello@example.com">
+                                        <input type="email" class="form-control" name="email" value="hello@example.com">
                                     </div>
                                     <div class="form-group">
                                         <label class="mb-1"><strong>Password</strong></label>
-                                        <input type="password" class="form-control" value="Password">
+                                        <input type="password" name="password" class="form-control" value="Password">
                                     </div>
                                     <div class="form-row d-flex justify-content-between mt-4 mb-2">
                                         <div class="form-group">
                                             <div class="custom-control custom-checkbox ml-1">
                                                 <input type="checkbox" class="custom-control-input" id="basic_checkbox_1">
-                                                <label class="custom-control-label" for="basic_checkbox_1">Remember my preference</label>
+                                                <label class="custom-control-label" for="basic_checkbox_1">Remember Me</label>
                                             </div>
                                         </div>
                                         <div class="form-group">
@@ -47,7 +49,7 @@
                                         </div>
                                     </div>
                                     <div class="text-center">
-                                        <a class="btn btn-primary btn-block" href="{{route('dashboard')}}">Sign In</a>
+                                        <button class="btn btn-primary btn-block" type="submit">Sign In</button>
                                     </div>
                                 </form>
                             </div>
@@ -69,6 +71,6 @@
 <script src="{{asset('assets/js/custom.min.js')}}"></script>
 <script src="{{asset('assets/js/deznav-init.js')}}"></script>
 <script src="{{asset('assets/js/demo.js')}}"></script>
-<script src="{{asset('assets/js/styleSwitcher.js')}}"></script>
+{{--<script src="{{asset('assets/js/styleSwitcher.js')}}"></script>--}}
 </body>
 </html>

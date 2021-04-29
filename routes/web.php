@@ -13,11 +13,18 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::get('/', function () {
-    return view('welcome');
-});
+Route::get('/', 'HomeController@index')->name('welcome');
 
 Auth::routes();
 
-Route::get('/home', 'HomeController@loadPage')->name('loadPage');
-Route::get('/dashboard', 'HireController@index')->name('dashboard');
+Route::get('/home', 'HomeController@index')->name('home');
+Route::get('/enquiry', 'EnquiryController@index')->name('enquiry.add');
+
+//cars
+Route::get('/car', 'CarController@index')->name('car.add');
+Route::get('/car_model', 'CarModelController@index')->name('car.add_model');
+Route::post('/create_car_model', 'CarModelController@create_car_model')->name('car.create_car_model');
+Route::get('/all_car_models', 'CarModelController@all_car_models')->name('car.all_car_models');
+
+
+Route::get('/logout', 'HomeController@logout')->name('logout');
