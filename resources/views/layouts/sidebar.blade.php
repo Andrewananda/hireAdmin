@@ -17,7 +17,7 @@
             </a>
             <ul aria-expanded="false">
                 <li><a href="./app-profile.html">All Enquiry</a></li>
-                <li><a href="./post-details.html">Add Enquiry</a></li>
+                <li><a href="{{route('enquiry.add')}}">Add Enquiry</a></li>
             </ul>
         </li>
         <li><a class="has-arrow ai-icon" href="javascript:void()" aria-expanded="false">
@@ -34,10 +34,10 @@
                 <span class="nav-text">Cars</span>
             </a>
             <ul aria-expanded="false">
-                <li><a href="./ui-accordion.html">Add Cars</a></li>
+                <li><a href="{{ route('car.add') }}">Add Cars</a></li>
                 <li><a href="./ui-alert.html">All Cars</a></li>
-                <li><a href="./ui-badge.html">Add Car Model</a></li>
-                <li><a href="./ui-button.html">All Car Models</a></li>
+                <li><a href="{{ route('car.add_model') }}">Add Car Model</a></li>
+                <li><a href="{{ route('car.all_car_models') }}">All Car Models</a></li>
             </ul>
         </li>
         <li>
@@ -75,7 +75,7 @@
         </li>
 
         <li>
-            <a href="./page-lock-screen.html">
+            <a href="{{route('logout')}}">
                 <i class="flaticon-003-logout"></i>
                 <span class="nav-text">Sign Out</span>
             </a>
