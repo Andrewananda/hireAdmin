@@ -7,6 +7,7 @@
             </div>
             <div class="card-body">
                 <div class="table-responsive">
+                    @include('layouts.message')
                     <table id="example" class="display" style="min-width: 845px;">
                         <thead>
                         <tr>
@@ -17,24 +18,17 @@
                         </tr>
                         </thead>
                         <tbody>
+                        @foreach ($car_models as $model)
                         <tr>
-                            <td>Tiger Nixon</td>
-                            <td>System Architect</td>
-                            <td>Edinburgh</td>
+                            <td>{{ $model->title }}</td>
+                            <td>{{ $model->description }}</td>
+                            <td>{{ date_format($model->created_at, 'd-m-Y') }}</td>
                             <td>
-                                <a class="btn btn-success" href="">Edit</a>
-                                <a class="btn btn-danger" href="">Delete</a>
+                                <a class="btn btn-success" href="{{ route('edit.car_model',['id'=> $model->id]) }}">Edit</a>
+                                <a class="btn btn-danger" href="{{ route('delete.car_model',['id'=>$model->id]) }}">Delete</a>
                             </td>
                         </tr>
-                        <tr>
-                            <td>Tiger Nixon</td>
-                            <td>System Architect</td>
-                            <td>Edinburgh</td>
-                            <td>
-                                <a class="btn btn-success" href="">Edit</a>
-                                <a class="btn btn-danger" href="">Delete</a>
-                            </td>
-                        </tr>
+                        @endforeach
                         </tbody>
                         <tfoot>
                         <tr>

@@ -39,6 +39,42 @@ class CarModelController extends Controller
     }
 
     public function all_car_models() {
-        return view('cars.all_car_models');
+        $car_models = CarModel::all();
+        return view('cars.all_car_models',['car_models'=> $car_models]);
+    }
+
+    public function edit_car_model($id) {
+
+        $car_model = CarModel::where(['id'=>$id])->first();
+        return view('cars.edit_car_model', ['model'=>$car_model]);
+    }
+
+    public function save_edit_car_model(Request $request,$id) {
+        $validation = Validator::make($request->all(), [
+            'title'=>'required',
+            'description'=>'required'
+        ]);
+
+        if ($validation->fails()) {
+            return redirect()->back()->with(['warning'=>'All fields are required']);
+        } else{
+            $car_model = CarModel::where(['id'=>$id])->first();
+            $car_model->title = $request->post('title');
+            $car_model->description = $request->post('description');
+
+            $car_model->update();
+            return redirect()->route('car.all_car_models')->with(['success'=>'Updated Successfully!']);
+        }
+    }
+
+    public function delete_car_model($id) {
+        $car_model = CarModel::where(['id'=> $id])->first();
+        if ($car_model) {
+            $car_model->delete();
+            return redirect()->back()->with(['success'=>'Deleted Successfully']);
+        } else {
+            //todo redirect to 404 page
+            return;
+        }
     }
 }
