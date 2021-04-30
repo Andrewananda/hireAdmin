@@ -14,8 +14,12 @@
 {{--        <strong>Success!!</strong>--}}
 {{--        <p>{{ Session::get('success') }}</p>--}}
 {{--    </div>--}}
-    <script>
-        swal("Hey, Good job !!", "You clicked the button !!", "success")
+    <script type="text/javascript">
+        Swal.fire({
+            type: 'error',
+            title: 'Oops...',
+            text: 'Something went wrong!'
+        })
     </script>
 @endif
 @if (Session::has('info'))

@@ -5,7 +5,7 @@
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width,initial-scale=1">
-    <title>Hire Admin Dashboard </title>
+    <title>Car Hire Admin Dashboard</title>
     <!-- Favicon icon -->
     <link rel="icon" type="image/png" sizes="16x16" href="{{asset('assets/images/favicon.png')}}">
     <link rel="stylesheet" href="{{asset('assets/vendor/chartist/css/chartist.min.css')}}">
@@ -749,6 +749,7 @@
 <script src="{{asset('assets/vendor/global/global.min.js')}}"></script>
 <script src="{{asset('assets/vendor/bootstrap-select/dist/js/bootstrap-select.min.js')}}"></script>
 <script src="{{asset('assets/vendor/chart.js/Chart.bundle.min.js')}}"></script>
+
 
 <!--DataTables-->
 <script src="{{asset('assets/vendor/datatables/js/jquery.dataTables.min.js')}}"></script>
