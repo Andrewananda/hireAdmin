@@ -1,29 +1,37 @@
 @extends('layouts.app')
 @section('content')
-    <div class="col-xl-12 col-lg-12" style="padding: 15px">
-        <div class="card">
-            <div class="card-header">
-                <h4 class="card-title">Create Cat Model</h4>
-            </div>
-            <div class="card-body">
-                <div class="basic-form">
-                    <form method="post" action="{{ route('car.create_car_model') }}">
-                        @include('layouts.message')
-                    @csrf
-                        <div class="form-row">
-                            <div class="form-group col-md-12">
-                                <label>Title</label>
-                                <input name="title" id="title" type="text" class="form-control" placeholder="Enter Car Model Title">
-                            </div>
-                            <div class="form-group col-md-12">
-                                <textarea id="description" name="description" style="padding: 10px" placeholder="Enter Car Model Description" cols="100" rows="10"></textarea>
-                            </div>
 
-                        </div>
-                        <button type="submit" class="btn btn-primary">Save</button>
-                    </form>
-                </div>
-            </div>
+    <div class="box box-primary">
+        <div class="box-header with-border">
+            <h3 class="box-title">Add Member</h3>
         </div>
+        @include('layouts.message')
+        <form enctype="multipart/form-data" method="post" action="{{ route('car.create_car_model') }}">
+            @csrf
+            <div class="row">
+                <div class="col-md-6">
+                    <div class="box-body">
+                        <div class="form-group">
+                            <label for="first_name">Title</label>
+                            <input type="text" name="title" class="form-control" id="title" placeholder="Enter Car Model Title">
+                        </div>
+                    </div>
+                </div>
+
+                <div class="col-md-6">
+                    <div class="box-body">
+                        <div class="form-group">
+                            <label for="username">Username</label>
+                            <textarea type="text" name="description" class="form-control" id="description" placeholder="Enter Car Model Description" cols="100" rows="10"></textarea>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+            <div class="box-body">
+                <button type="submit" style="display:block;margin: 0% 35%; width: 300px" class="btn btn-primary">Submit</button>
+            </div>
+        </form>
     </div>
+
 @endsection

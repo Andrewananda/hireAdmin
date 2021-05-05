@@ -1,84 +1,133 @@
-<div class="deznav-scroll">
-    <div class="main-profile">
-        <img src="{{asset('assets/images/Untitled-1.jpg')}}" alt="">
-        <a href="javascript:void(0);"><i class="fa fa-cog" aria-hidden="true"></i></a>
-        <h5 class="mb-0 fs-20 text-black "><span class="font-w400">Hello,</span> Marquez</h5>
-        <p class="mb-0 fs-14 font-w400">marquezzzz@mail.com</p>
-    </div>
-    <ul class="metismenu" id="menu">
-        <li><a class="ai-icon" href="#" aria-expanded="false">
-                <i class="flaticon-144-layout"></i>
-                <span class="nav-text">Dashboard</span>
-            </a>
-        </li>
-        <li><a class="has-arrow ai-icon" href="javascript:void()" aria-expanded="false">
-                <i class="flaticon-077-menu-1"></i>
-                <span class="nav-text">Enquiries</span>
-            </a>
-            <ul aria-expanded="false">
-                <li><a href="./app-profile.html">All Enquiry</a></li>
-                <li><a href="{{route('enquiry.add')}}">Add Enquiry</a></li>
-            </ul>
-        </li>
-        <li><a class="has-arrow ai-icon" href="javascript:void()" aria-expanded="false">
-                <i class="flaticon-061-puzzle"></i>
-                <span class="nav-text">Reservations</span>
-            </a>
-            <ul aria-expanded="false">
-                <li><a href="./chart-flot.html">Add Reservation</a></li>
-                <li><a href="./chart-morris.html">All Reservations</a></li>
-            </ul>
-        </li>
-        <li><a class="has-arrow ai-icon" href="javascript:void()" aria-expanded="false">
-                <i class="flaticon-003-diamond"></i>
-                <span class="nav-text">Cars</span>
-            </a>
-            <ul aria-expanded="false">
-                <li><a href="{{ route('car.add') }}">Add Cars</a></li>
-                <li><a href="./ui-alert.html">All Cars</a></li>
-                <li><a href="{{ route('car.add_model') }}">Add Car Model</a></li>
-                <li><a href="{{ route('car.all_car_models') }}">All Car Models</a></li>
-            </ul>
-        </li>
-        <li>
-            <a class="has-arrow ai-icon" href="javascript:void()" aria-expanded="false">
-                <i class="flaticon-053-heart"></i>
-                <span class="nav-text">Hire</span>
-            </a>
-            <ul aria-expanded="false">
-                <li><a href="./uc-select2.html">All Hired</a></li>
-                <li><a href="./uc-nestable.html">Returned</a></li>
-                <li><a href="./uc-noui-slider.html">Hire Report</a></li>
-            </ul>
-        </li>
+<aside class="main-sidebar">
+    <!-- sidebar: style can be found in sidebar.less -->
+    <section class="sidebar">
+        <!-- Sidebar user panel -->
+        <div class="user-panel">
+            <div class="pull-left image">
+                <img src="{{\Illuminate\Support\Facades\Auth::user()->photo}}" class="img-circle" alt="User Image">
 
-        <li><a class="has-arrow ai-icon" href="javascript:void()" aria-expanded="false">
-                <i class="flaticon-003-diamond"></i>
-                <span class="nav-text">Payments</span>
-            </a>
-            <ul aria-expanded="false">
-                <li><a href="./ui-accordion.html">Initiate Payment</a></li>
-                <li><a href="./ui-alert.html">All Payments</a></li>
-            </ul>
-        </li>
+            </div>
+            <div class="pull-left info">
+                <p>{{\Illuminate\Support\Facades\Auth::user()->name}}</p>
+                <a href="{{ route('home') }}"><i class="fa fa-circle text-success"></i> Online</a>
+            </div>
+        </div>
+        <!-- search form -->
 
-        <li>
-            <a class="has-arrow ai-icon" href="javascript:void()" aria-expanded="false">
-                <i class="flaticon-003-diamond"></i>
-                <span class="nav-text">Users</span>
-            </a>
-            <ul aria-expanded="false">
-                <li><a href="./ui-accordion.html">All Users</a></li>
-                <li><a href="./ui-alert.html">Add User</a></li>
-                <li><a href="./ui-alert.html">Block User</a></li>
-            </ul>
-        </li>
+        <!-- /.search form -->
+        <!-- sidebar menu: : style can be found in sidebar.less -->
+        <ul class="sidebar-menu" data-widget="tree">
+            <li class="header">MAIN NAVIGATION</li>
+            <li >
+                <a href="{{ route('home') }}">
+                    <i class="fa fa-dashboard"></i> <span>Dashboard</span>
+                </a>
+            </li>
 
-        <li>
-            <a href="{{route('logout')}}">
-                <i class="flaticon-003-logout"></i>
-                <span class="nav-text">Sign Out</span>
-            </a>
-        </li>
-    </ul>
-</div>
+            <li class="treeview">
+                <a href="#">
+                    <i class="fa fa-user"></i>
+                    <span>Enquiries</span>
+                    <span class="pull-right-container">
+              <i class="fa fa-angle-left pull-right"></i>
+            </span>
+                </a>
+                <ul class="treeview-menu">
+                    <li><a href="{{ route('enquiry.add') }}"><i class="fa fa-list"></i> Add Enquiry</a></li>
+                </ul>
+            </li>
+
+
+            <li class="treeview">
+                <a href="#">
+                    <i class="fa fa-building"></i>
+                    <span>Manage Cars</span>
+                    <span class="pull-right-container">
+              <i class="fa fa-angle-left pull-right"></i>
+            </span>
+                </a>
+                <ul class="treeview-menu">
+                    <li><a href="{{ route('car.add_model') }}"><i class="fa fa-bookmark-o"></i> Add Car Model</a></li>
+                    <li><a href="{{ route('car.all_car_models') }}"><i class="fa fa-bookmark-o"></i> All Car Models</a></li>
+                </ul>
+            </li>
+
+{{--            <li class="treeview">--}}
+{{--                <a href="#">--}}
+{{--                    <i class="fa fa-book"></i>--}}
+{{--                    <span> Minutes</span>--}}
+{{--                    <span class="pull-right-container">--}}
+{{--              <i class="fa fa-angle-left pull-right"></i>--}}
+{{--            </span>--}}
+{{--                </a>--}}
+{{--                <ul class="treeview-menu">--}}
+{{--                    @if(Auth::user()->can('add-minutes'))--}}
+{{--                        <li><a href="{{ route('minutes') }}"><i class="fa fa-bookmark"></i> Add Minutes</a></li>--}}
+{{--                    @endif--}}
+{{--                    <li><a href="{{ route('all.minutes') }}"><i class="fa fa-bookmark-o"></i> All Minutes</a></li>--}}
+{{--                </ul>--}}
+{{--            </li>--}}
+
+{{--            @if(Auth::user()->can('add-permissions'))--}}
+{{--                <li class="treeview">--}}
+{{--                    <a href="#">--}}
+{{--                        <i class="fa fa-lock"></i>--}}
+{{--                        <span>Manage Permissions</span>--}}
+{{--                        <span class="pull-right-container">--}}
+{{--              <i class="fa fa-angle-left pull-right"></i>--}}
+{{--            </span>--}}
+{{--                    </a>--}}
+{{--                    <ul class="treeview-menu">--}}
+{{--                        <li><a href="{{ route('member.permission') }}"><i class="fa fa-key"></i> Give Permissions</a></li>--}}
+{{--                        <li><a href="{{ route('all.permissions') }}"><i class="fa fa-unlock-alt"></i> All Permission</a></li>--}}
+{{--                        <li><a href="{{ route('register.permission') }}"><i class="fa fa-unlock"></i> Add Permission</a></li>--}}
+{{--                    </ul>--}}
+{{--                </li>--}}
+{{--            @endif--}}
+
+
+{{--            <li class="treeview">--}}
+{{--                <a href="#">--}}
+{{--                    <i class="fa fa-file-image-o"></i>--}}
+{{--                    <span> Gallery</span>--}}
+{{--                    <span class="pull-right-container">--}}
+{{--              <i class="fa fa-angle-left pull-right"></i>--}}
+{{--            </span>--}}
+{{--                </a>--}}
+{{--                <ul class="treeview-menu">--}}
+{{--                    @if(Auth::user()->can('add-gallery'))--}}
+{{--                        <li><a href="{{ route('gallery') }}"><i class="fa fa-bookmark"></i> Add Images</a></li>--}}
+{{--                    @endif--}}
+{{--                    <li><a href="{{ route('all.photos') }}"><i class="fa fa-image"></i> View Gallery</a></li>--}}
+{{--                </ul>--}}
+{{--            </li>--}}
+
+
+
+{{--            <li class="treeview">--}}
+{{--                <a href="#">--}}
+{{--                    @if(Auth::user()->can('add-contributions'))--}}
+{{--                        <i class="fa fa-money"></i> <span>Manage Contributions</span>--}}
+{{--                    @else--}}
+{{--                        <i class="fa fa-money"></i> <span>Contributions</span>--}}
+{{--                    @endif--}}
+{{--                    <span class="pull-right-container">--}}
+{{--              <i class="fa fa-angle-left pull-right"></i>--}}
+{{--            </span>--}}
+{{--                </a>--}}
+{{--                <ul class="treeview-menu">--}}
+{{--                    @if(Auth::user()->can('add-contributions'))--}}
+{{--                        <li><a href="{{ route('contribute') }}"><i class="fa fa-money"></i> Add Contribution</a></li>--}}
+{{--                    @endif--}}
+{{--                    @if(Auth::user()->can('view-contributions'))--}}
+{{--                        <li><a href="{{ route('all.contributions') }}"><i class="fa fa-money"></i> All Contributions</a></li>--}}
+{{--                        <li><a href="{{ route('my.contributions') }}"><i class="fa fa-money"></i> My Contributions</a></li>--}}
+{{--                    @endif--}}
+
+{{--                </ul>--}}
+{{--            </li>--}}
+
+        </ul>
+    </section>
+    <!-- /.sidebar -->
+</aside>
