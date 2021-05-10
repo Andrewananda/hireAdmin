@@ -23,6 +23,11 @@ Route::get('/enquiry', 'EnquiryController@index')->name('enquiry.add');
 //cars
 Route::get('/car', 'CarController@index')->name('car.add');
 Route::post('/add-car', 'CarController@addCar')->name('car.create_car');
+Route::get('/all-cars', 'CarController@getCars')->name('car.all_cars');
+Route::get('/edit-car/{id}', 'CarController@editCar')->name('car.edit_car');
+Route::post('/edit/{id}','CarController@actualEdit')->name('car.edit');
+Route::get('/delete-car/{id}', 'CarController@deleteCar')->name('car.delete');
+
 
 //Car Model
 Route::get('/car_model', 'CarModelController@index')->name('car.add_model');

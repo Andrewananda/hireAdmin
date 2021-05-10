@@ -47,9 +47,51 @@ class CarController extends Controller
                     $car->save();
                     return redirect()->back()->with(['success'=>'Successfully added car']);
                 } else {
-                    return redirect()->back()->with(['error', 'Car model does not exist']);
+                    return redirect()->back()->with(['error'=> 'Car model does not exist']);
                 }
             }
+        }
+    }
+
+    public function getCars() {
+        $cars = Car::all();
+        return view('cars.all_cars',['cars'=>$cars]);
+    }
+
+    public function editCar($id) {
+        $car = Car::where(['id'=>$id])->first();
+        $car_models = CarModel::all();
+        if ($car) {
+            return view('cars.edit_car',['car'=>$car, 'car_models'=>$car_models]);
+        }else{
+            //return 404
+            return redirect()->back();
+        }
+    }
+
+    public function actualEdit($id, Request $request) {
+        $car = Car::where(['id'=>$id])->first();
+        if ($car) {
+            $validation = Validator::make($request->all(),[
+                'model_id'=>'required',
+                'year'=>'required',
+                'number_of_seats'=>'required',
+                'number_plate'=>'required',
+                'status'=>'required',
+                'photo'=>'nullable'
+            ]);
+            if ($validation->fails()) {
+                return redirect()->back()->with(['error'=>'Kindly fill required fields']);
+            }else {
+                $car->model_id = $request->post('model_id');
+                $car->year = $request->post('year');
+                $car->number_of_seats = $request->post('number_of_seats');
+                $car->status = $request->post('status');
+                $car->update();
+                return redirect()->back()->with(['success'=>'Car updated successfully']);
+            }
+        }else{
+            return redirect()->back()->with(['error'=>'Car Cannot be found']);
         }
     }
 }
