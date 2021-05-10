@@ -22,6 +22,7 @@ Route::get('/enquiry', 'EnquiryController@index')->name('enquiry.add');
 
 //cars
 Route::get('/car', 'CarController@index')->name('car.add');
+Route::post('/add-car', 'CarController@addCar')->name('car.create_car');
 
 //Car Model
 Route::get('/car_model', 'CarModelController@index')->name('car.add_model');
