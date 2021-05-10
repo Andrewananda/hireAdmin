@@ -50,6 +50,7 @@
                     <li><a href="{{ route('car.add_model') }}"><i class="fa fa-car"></i> Add Car Model</a></li>
                     <li><a href="{{ route('car.all_car_models') }}"><i class="fa fa-car"></i> All Car Models</a></li>
                     <li><a href="{{ route('car.add') }}"><i class="fa fa-address-book"></i> Add Car</a></li>
+                    <li><a href="{{ route('car.all_cars') }}"><i class="fa fa-address-book"></i> All Cars</a></li>
                 </ul>
             </li>
 
