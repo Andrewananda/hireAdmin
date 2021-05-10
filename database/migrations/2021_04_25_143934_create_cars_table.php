@@ -20,6 +20,7 @@ class CreateCarsTable extends Migration
             $table->string('year');
             $table->string('number_of_seats');
             $table->string('number_plate');
+            $table->string("photo");
             $table->string('status');
             $table->rememberToken();
             $table->timestamps();

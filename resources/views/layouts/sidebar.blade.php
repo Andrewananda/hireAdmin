@@ -47,8 +47,9 @@
             </span>
                 </a>
                 <ul class="treeview-menu">
-                    <li><a href="{{ route('car.add_model') }}"><i class="fa fa-bookmark-o"></i> Add Car Model</a></li>
-                    <li><a href="{{ route('car.all_car_models') }}"><i class="fa fa-bookmark-o"></i> All Car Models</a></li>
+                    <li><a href="{{ route('car.add_model') }}"><i class="fa fa-car"></i> Add Car Model</a></li>
+                    <li><a href="{{ route('car.all_car_models') }}"><i class="fa fa-car"></i> All Car Models</a></li>
+                    <li><a href="{{ route('car.add') }}"><i class="fa fa-address-book"></i> Add Car</a></li>
                 </ul>
             </li>
 

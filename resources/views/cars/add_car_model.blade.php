@@ -3,12 +3,12 @@
 
     <div class="box box-primary">
         <div class="box-header with-border">
-            <h3 class="box-title">Add Member</h3>
+            <h3 class="box-title">Add Model</h3>
         </div>
-        @include('layouts.message')
         <form enctype="multipart/form-data" method="post" action="{{ route('car.create_car_model') }}">
             @csrf
             <div class="row">
+                @include('layouts.message')
                 <div class="col-md-6">
                     <div class="box-body">
                         <div class="form-group">
