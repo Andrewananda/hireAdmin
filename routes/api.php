@@ -15,9 +15,18 @@ use Illuminate\Support\Facades\Route;
 */
 
 
-Route::middleware('auth:api')->get('/user', function (Request $request) {
-    return $request->user();
+//Route::middleware('auth:api')->get('/user', function (Request $request) {
+//    return $request->user();
+//});
+Route::group([
+    'middleware'=>'jwt.auth'
+],  function () {
+    Route::post('/create_enquiry', 'ApiController@create_enquiry')->name('create_enquiry');
+    Route::post('/logout', 'ApiController@logout')->name('logout');
+    Route::post('/book', 'ApiController@create_booking')->name('create_booking');
 });
-Route::post('/login', 'ApiController@login')->name('login');
 Route::post('/register', 'ApiController@register')->name('register');
+Route::post('/login', 'ApiController@login')->name('login');
 Route::get('/cars','ApiController@all_cars')->name('cars');
+
+

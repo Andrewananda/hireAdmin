@@ -6,9 +6,10 @@ use Illuminate\Http\Request;
 
 class GeneralResponse extends Controller
 {
-    public static function success($info, $count, $data) {
+    public static function success($info, $message, $count, $data) {
         return response()->json([
             'info'=>$info,
+            'message'=>$message,
             'count'=>$count,
             'data'=>$data
         ])->setStatusCode(200);

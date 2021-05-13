@@ -38,6 +38,15 @@
                 <div class="col-md-6">
                     <div class="box-body">
                         <div class="form-group">
+                            <label for="first_name">Price</label>
+                            <input type="text" name="price" class="form-control" id="year" placeholder="Enter car price">
+                        </div>
+                    </div>
+                </div>
+
+                <div class="col-md-6">
+                    <div class="box-body">
+                        <div class="form-group">
                             <label>Model</label>
                             <select class="form-control select2" name="model_id" style="width: 100%;">
                                 <option selected="selected">Model</option>

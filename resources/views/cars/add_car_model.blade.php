@@ -21,7 +21,7 @@
                 <div class="col-md-6">
                     <div class="box-body">
                         <div class="form-group">
-                            <label for="username">Username</label>
+                            <label for="username">Description</label>
                             <textarea type="text" name="description" class="form-control" id="description" placeholder="Enter Car Model Description" cols="100" rows="10"></textarea>
                         </div>
                     </div>
