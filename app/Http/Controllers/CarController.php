@@ -20,6 +20,7 @@ class CarController extends Controller
             'number_of_seats'=>'required',
             'number_plate'=>'required',
             'status'=>'required',
+            'price'=>'required',
             'photo'=>'image|mimes:jpeg,png,jpg,gif,svg|max:2048'
         ]);
         if ($validation->fails()) {
@@ -43,6 +44,7 @@ class CarController extends Controller
                     $car->number_of_seats = $request->post('number_of_seats');
                     $car->number_plate = $request->post('number_plate');
                     $car->status = $request->post('status');
+                    $car->price=$request->post('price');
                     $car->photo = $filenameToStore;
                     $car->save();
                     return redirect()->back()->with(['success'=>'Successfully added car']);

@@ -21,6 +21,7 @@ class CreateCarsTable extends Migration
             $table->string('number_of_seats');
             $table->string('number_plate');
             $table->string("photo");
+            $table->integer('price');
             $table->string('status');
             $table->rememberToken();
             $table->timestamps();

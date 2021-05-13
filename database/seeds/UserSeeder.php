@@ -18,6 +18,7 @@ class UserSeeder extends Seeder
             'email'=>'admin@gmail.com',
             'gender'=> 'm',
             'id_number' => '370098212',
+            'phone'=> '254723546707',
             'password'=>Hash::make('secret')
         ]);
     }
