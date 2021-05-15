@@ -38,4 +38,9 @@ Route::post('/edit_car_model/{id}','CarModelController@save_edit_car_model')->na
 Route::get('/delete_car_model/{id}', 'CarModelController@delete_car_model')->name('delete.car_model');
 
 
+//Car Gallery
+Route::get('/car_gallery', 'GalleryController@index')->name('car.add_gallery');
+Route::get('/gallery_all', 'GalleryController@all_car_galleries')->name('car.all_galleries');
+
+
 Route::get('/logout', 'HomeController@logout')->name('logout');
