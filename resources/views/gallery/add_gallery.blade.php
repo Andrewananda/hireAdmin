@@ -28,7 +28,7 @@
                             <div id="imagePreview">
                                 <img src="http://placehold.it/300" height="150px" width="180px" id="blah" alt="">
                             </div>
-                            <input onchange="readURL(this);" value="1" type="file" id="imageUpload" name="photo[]">
+                            <input onchange="readURL(this, 'imageUpload1');" value="1" type="file" id="imageUpload1" name="photo[]">
                             <p class="help-block">Upload car photo.</p>
                         </div>
                     </div>
@@ -41,7 +41,7 @@
                             <div id="imagePreview">
                                 <img src="http://placehold.it/300" height="150px" width="180px" id="blah" alt="">
                             </div>
-                            <input onchange="readURL(this);" value="2" type="file" id="imageUpload" name="photo[]">
+                            <input onchange="readURL(this, 'imageUpload2');" value="2" type="file" id="imageUpload2" name="photo[]">
                             <p class="help-block">Upload car photo.</p>
                         </div>
                     </div>
@@ -54,7 +54,7 @@
                             <div id="imagePreview">
                                 <img src="http://placehold.it/300" height="150px" width="180px" id="blah" alt="">
                             </div>
-                            <input onchange="readURL(this);" value="3" type="file" id="imageUpload" name="photo[]">
+                            <input onchange="readURL(this, 'imageUpload3');" value="3" type="file" id="imageUpload3" name="photo[]">
                             <p class="help-block">Upload car photo.</p>
                         </div>
                     </div>
@@ -67,7 +67,7 @@
                             <div id="imagePreview">
                                 <img src="http://placehold.it/300" height="150px" width="180px" id="blah" alt="">
                             </div>
-                            <input onchange="readURL(this);" value="4" type="file" id="imageUpload" name="photo[]">
+                            <input onchange="readURL(this, 'imageUpload4');" value="4" type="file" id="imageUpload4" name="photo[]">
                             <p class="help-block">Upload car photo.</p>
                         </div>
                     </div>
