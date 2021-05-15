@@ -54,6 +54,20 @@
                 </ul>
             </li>
 
+            <li class="treeview">
+                <a href="#">
+                    <i class="fa fa-building"></i>
+                    <span>Manage Gallery</span>
+                    <span class="pull-right-container">
+              <i class="fa fa-angle-left pull-right"></i>
+            </span>
+                </a>
+                <ul class="treeview-menu">
+                    <li><a href="{{ route('car.add_gallery') }}"><i class="fa fa-photo"></i> Add Car Gallery</a></li>
+                    <li><a href="{{ route('car.all_galleries') }}"><i class="fa fa-image"></i> All Car Galleries</a></li>
+                </ul>
+            </li>
+
 {{--            <li class="treeview">--}}
 {{--                <a href="#">--}}
 {{--                    <i class="fa fa-book"></i>--}}

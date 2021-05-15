@@ -13,10 +13,6 @@ use Illuminate\Support\Facades\Validator;
 
 class ApiController extends Controller
 {
-    public function __construct() {
-        $this->middleware('auth:api', ['except' => ['login', 'register']]);
-    }
-
     protected function respondWithToken($token)
     {
         return response()->json([
@@ -33,13 +29,21 @@ class ApiController extends Controller
     }
 
     public function all_cars() {
-        $cars = Car::with('model')->get();
+        $cars = Car::where(['status'=>'available'])->with('model')->get();
         $count = count($cars);
         if ($cars){
             return GeneralResponse::success('success', 'cars fetched successfully', $count,  $cars);
         }else {
             return GeneralResponse::error('Cannot find cars');
         }
+    }
+
+    public function popular_car() {
+
+    }
+
+    public function top_deals() {
+
     }
 
     public function register(Request $request) {
