@@ -18,6 +18,7 @@ class CreateCarsTable extends Migration
             $table->string('name');
             $table->string('model_id');
             $table->string('year');
+            $table->integer('hire_duration_id');
             $table->string('number_of_seats');
             $table->string('number_plate');
             $table->string("photo");

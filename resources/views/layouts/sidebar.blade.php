@@ -2,20 +2,6 @@
     <!-- sidebar: style can be found in sidebar.less -->
     <section class="sidebar">
         <!-- Sidebar user panel -->
-        <div class="user-panel">
-            <div class="pull-left image">
-                <img src="{{\Illuminate\Support\Facades\Auth::user()->photo}}" class="img-circle" alt="User Image">
-
-            </div>
-            <div class="pull-left info">
-                <p>{{\Illuminate\Support\Facades\Auth::user()->name}}</p>
-                <a href="{{ route('home') }}"><i class="fa fa-circle text-success"></i> Online</a>
-            </div>
-        </div>
-        <!-- search form -->
-
-        <!-- /.search form -->
-        <!-- sidebar menu: : style can be found in sidebar.less -->
         <ul class="sidebar-menu" data-widget="tree">
             <li class="header">MAIN NAVIGATION</li>
             <li >
@@ -65,6 +51,20 @@
                 <ul class="treeview-menu">
                     <li><a href="{{ route('car.add_gallery') }}"><i class="fa fa-photo"></i> Add Car Gallery</a></li>
                     <li><a href="{{ route('car.all_galleries') }}"><i class="fa fa-image"></i> All Car Galleries</a></li>
+                </ul>
+            </li>
+
+            <li class="treeview">
+                <a href="#">
+                    <i class="fa fa-gears"></i>
+                    <span>Settings</span>
+                    <span class="pull-right-container">
+              <i class="fa fa-angle-left pull-right"></i>
+            </span>
+                </a>
+                <ul class="treeview-menu">
+                    <li><a href="{{ route('duration.add_duration') }}"><i class="fa fa-clock-o"></i> Add hire duration</a></li>
+
                 </ul>
             </li>
 

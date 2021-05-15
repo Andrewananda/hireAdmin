@@ -5,6 +5,8 @@ namespace App\Http\Controllers;
 use App\Booking;
 use App\Car;
 use App\Enquiry;
+use App\Gallery;
+use App\HireDuration;
 use App\User;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Hash;
@@ -29,7 +31,9 @@ class ApiController extends Controller
     }
 
     public function all_cars() {
-        $cars = Car::where(['status'=>'available'])->with('model')->get();
+
+        $cars = Car::where(['status'=>'available'])->with(['model', 'hire_duration'])->get();
+
         $count = count($cars);
         if ($cars){
             return GeneralResponse::success('success', 'cars fetched successfully', $count,  $cars);
@@ -39,11 +43,30 @@ class ApiController extends Controller
     }
 
     public function popular_car() {
-
+        $cars = Car::query()
+            ->orderBy('id', 'desc')
+            ->limit(1)
+            ->get();
+        return GeneralResponse::success('success', 'Fetched successfully',count($cars), $cars);
     }
 
     public function top_deals() {
+        $cars = Car::query()
+            ->orderBy('id', 'desc')
+            ->limit(5)
+            ->get();
+        return GeneralResponse::success('success', 'Fetched successfully', count($cars), $cars);
+    }
 
+    public function car_details(Request $request) {
+        $id = $request->post('car_id');
+        $car = Car::where(['id'=>$id])->first();
+        if ($car) {
+            $gallery = Gallery::where(['car_id'=>$id])->get();
+            return GeneralResponse::success('success','fetched successfully', count($gallery), $gallery);
+        }else {
+            return GeneralResponse::error('Car with id  cannot be found');
+        }
     }
 
     public function register(Request $request) {
@@ -152,5 +175,7 @@ class ApiController extends Controller
             }
         }
     }
+
+
 
 }

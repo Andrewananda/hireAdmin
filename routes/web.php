@@ -37,9 +37,15 @@ Route::get('/car_model/{id}', 'CarModelController@edit_car_model')->name('edit.c
 Route::post('/edit_car_model/{id}','CarModelController@save_edit_car_model')->name('car.save_edit_car_model');
 Route::get('/delete_car_model/{id}', 'CarModelController@delete_car_model')->name('delete.car_model');
 
+//Car hire duration
+Route::get('/hire_duration', 'CarController@add_duration')->name('duration.add_duration');
+Route::post('/create_hire_duration', 'CarController@create_duration')->name('duration.create_duration');
+Route::get('/edit_duration/{id}', 'CarController@edit_duration')->name('duration.edit_duration');
+
 
 //Car Gallery
 Route::get('/car_gallery', 'GalleryController@index')->name('car.add_gallery');
+Route::post('/create_gallery', 'GalleryController@create_gallery')->name('car.create_gallery');
 Route::get('/gallery_all', 'GalleryController@all_car_galleries')->name('car.all_galleries');
 
 
