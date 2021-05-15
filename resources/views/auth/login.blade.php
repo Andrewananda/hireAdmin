@@ -1,104 +1,58 @@
 <!DOCTYPE html>
-<!--[if IE 9]>         <html class="no-js lt-ie10" lang="en"> <![endif]-->
-<!--[if gt IE 9]><!--> <html class="no-js" lang="en"> <!--<![endif]-->
+<html lang="en">
 <head>
     <meta charset="utf-8">
-
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width,initial-scale=1,user-scalable=0,minimal-ui">
     <title>Car Hire</title>
-
-    <meta name="description" content="ProUI is a Responsive Bootstrap Admin Template created by pixelcave and published on Themeforest.">
-    <meta name="author" content="pixelcave">
-    <meta name="robots" content="noindex, nofollow">
-    <meta name="viewport" content="width=device-width,initial-scale=1.0,user-scalable=0">
-
-    <!-- Icons -->
-    <!-- The following icons can be replaced with your own, they are used by desktop and mobile browsers -->
-    <link rel="shortcut icon" href="{{ asset('assets/login/img/favicon.png')}}">
-    <link rel="apple-touch-icon" href="{{ asset('assets/login/img/icon57.png')}}" sizes="57x57">
-    <link rel="apple-touch-icon" href="{{ asset('assets/login/img/icon72.png')}}" sizes="72x72">
-    <link rel="apple-touch-icon" href="{{ asset('assets/login/img/icon76.png')}}" sizes="76x76">
-    <link rel="apple-touch-icon" href="{{ asset('assets/login/img/icon114.png')}}" sizes="114x114">
-    <link rel="apple-touch-icon" href="{{ asset('assets/login/img/icon120.png')}}" sizes="120x120">
-    <link rel="apple-touch-icon" href="{{ asset('assets/login/img/icon144.png')}}" sizes="144x144">
-    <link rel="apple-touch-icon" href="{{ asset('assets/login/img/icon152.png')}}" sizes="152x152">
-    <link rel="apple-touch-icon" href="{{ asset('assets/login/img/icon180.png')}}" sizes="180x180">
-    <!-- END Icons -->
-
-    <!-- Stylesheets -->
-    <!-- Bootstrap is included in its original form, unaltered -->
-    <link rel="stylesheet" href="{{ asset('assets/login//bootstrap.min.css')}}">
-
-    <!-- Related styles of various icon packs and plugins -->
-    <link rel="stylesheet" href="{{ asset('assets/login/css/plugins.css')}}">
-
-    <!-- The main stylesheet of this template. All Bootstrap overwrites are defined in here -->
-    <link rel="stylesheet" href="{{ asset('assets/login/css/main.css')}}">
-
-    <!-- Include a specific file here from css/themes/ folder to alter the default theme of the template -->
-
-    <!-- The themes stylesheet of this template (for using specific theme color in individual elements - must included last) -->
-    <link rel="stylesheet" href="{{ asset('assets/login/css/themes.css')}}">
-    <!-- END Stylesheets -->
-
-    <!-- Modernizr (browser feature detection library) -->
-    <script src="{{ asset('assets/login/js/vendor/modernizr.min.js')}}"></script>
+    <meta content="Admin Dashboard" name="description">
+    <meta content="Themesbrand" name="author">
+    <link rel="shortcut icon" href="{{ asset('asset/images/favicon.ico')}}">
+    <link href="{{ asset('asset/css/bootstrap.min.css')}}" rel="stylesheet" type="text/css">
+    <link href="{{ asset('asset/css/metismenu.min.css')}}" rel="stylesheet" type="text/css">
+    <link href="{{ asset('asset/css/icons.css')}}" rel="stylesheet" type="text/css">
+    <link href="{{ asset('asset/css/style.css')}}" rel="stylesheet" type="text/css">
 </head>
-<body>
-<!-- Login Background -->
-<div style="background: #00A6C7; width: 100%; height: 100%">
-    <!-- For best results use an image with a resolution of 2560x400 pixels (prefer a blurred image for smaller file size) -->
-{{--    <img src="{{ asset('assets/login/img/placeholders/headers/Cousins.jpeg')}}" width="100%" height="600px" style="background-repeat: repeat" alt="Login Background" >--}}
-</div>
-<!-- END Login Background -->
-
-<!-- Login Container -->
-<div id="login-container" class="animation-fadeIn">
-    <!-- Login Title -->
-    <div class="login-title text-center">
-        <h1><i class="gi gi-flash"></i> <strong>Login</strong><br></h1>
-    </div>
-    <!-- END Login Title -->
-
-    <!-- Login Block -->
-    <div class="block push-bit">
-        <!-- Login Form -->
-        <form action="{{ route('login') }}" method="post"  class="form-horizontal form-bordered form-control-borderless">
-            @csrf
-            @include('layouts.message')
-            <div class="form-group">
-                <div class="col-xs-12">
-                    <div class="input-group">
-                        <span class="inp ut-group-addon"><i class="gi gi-envelope"></i></span>
-                        <input type="text" id="email" name="email" class="form-control input-lg" placeholder="Username">
+<body><!-- Background -->
+<div class="account-pages"></div><!-- Begin page -->
+<div class="wrapper-page">
+    <div class="card">
+        <div class="card-body">
+            <h3 class="text-center m-0">
+                <a href="{{ route('home') }}" class="logo logo-admin">
+                    <img src="{{ asset('asset/images/logo.png')}}" height="30" alt="logo">
+                </a>
+            </h3>
+            <div class="p-3"><h4 class="text-muted font-18 m-b-5 text-center">Welcome Back !</h4>
+                <p class="text-muted text-center">Sign in to continue to CarHire Admin.</p>
+                <form class="form-horizontal m-t-30" method="post" action="{{ route('login') }}">
+                    @csrf
+                    @include('layouts.message')
+                    <div class="form-group">
+                        <label for="username">Username</label>
+                        <input type="text" class="form-control" id="email" name="email" placeholder="Enter email">
                     </div>
-                </div>
-            </div>
-            <div class="form-group">
-                <div class="col-xs-12">
-                    <div class="input-group">
-                        <span class="inp ut-group-addon"><i class="gi gi-lock"></i></span>
-                        <input type="password" id="password" name="password" class="form-control input-lg" placeholder="password">
+                    <div class="form-group">
+                        <label for="userpassword">Password</label>
+                        <input type="password" class="form-control" id="password" name="password" placeholder="Enter password">
                     </div>
-                </div>
+                    <div class="form-group">
+                        <button class="btn btn-primary w-md waves-effect waves-light" type="submit">Log In</button>
+                    </div>
+                </form>
             </div>
-
-            <button style="margin-left: 40%; padding-bottom: 5px; margin-bottom: 15px;" class="btn btn-primary" name="submit"><i class="fa fa-unlock-alt"></i> Submit</button>
-
-
-        </form>
-        <!-- END Login Form -->
+        </div>
     </div>
-</div>
-
-
-<!-- jQuery, Bootstrap.js, jQuery plugins and Custom JS code -->
-<script src="{{ asset('assets/login/js/vendor/jquery.min.js')}}"></script>
-<script src="{{ asset('assets/login/js/vendor/bootstrap.min.js')}}"></script>
-<script src="{{ asset('assets/login/js/plugins.js')}}"></script>
-<script src="{{ asset('assets/login/js/app.js')}}"></script>
-
-<!-- Load and execute javascript code used only in this page -->
-<script src="{{ asset('assets/login/js/pages/login.js')}}"></script>
-<script>$(function(){ Login.init(); });</script>
+    <div class="m-t-40 text-center">
+        <p class="text-muted">© 2021 Crafted with <i class="mdi mdi-heart text-danger"></i> by devstart</p>
+    </div>
+</div><!-- END wrapper --><!-- jQuery  -->
+<script src="{{ asset('asset/js/jquery.min.js')}}"></script>
+<script src="{{ asset('asset/js/bootstrap.bundle.min.js')}}"></script>
+<script src="{{ asset('asset/js/metisMenu.min.js')}}"></script>
+<script src="{{ asset('asset/js/jquery.slimscroll.js')}}"></script>
+<script src="{{ asset('asset/js/waves.min.js')}}"></script>
+<script src="{{ asset('asset/plugins/jquery-sparkline/jquery.sparkline.min.js')}}"></script><!-- App js -->
+<script src="{{ asset('asset/js/app.js')}}"></script>
 </body>
 </html>
