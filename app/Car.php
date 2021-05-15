@@ -13,4 +13,8 @@ class Car extends Model
     function gallery() {
         return $this->belongsTo(Gallery::class);
     }
+
+    function hire_duration() {
+        return $this->belongsTo(HireDuration::class);
+    }
 }

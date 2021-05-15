@@ -47,6 +47,20 @@
                 <div class="col-md-6">
                     <div class="box-body">
                         <div class="form-group">
+                            <label>Hire Duration</label>
+                            <select class="form-control select2" name="hire_duration_id" style="width: 100%;">
+                                <option selected="selected">Select Duration</option>
+                                @foreach($hire_durations as $hire_duration)
+                                <option value="{{ $hire_duration->id }}">{{ $hire_duration->name }}</option>
+                                @endforeach
+                            </select>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="col-md-6">
+                    <div class="box-body">
+                        <div class="form-group">
                             <label>Model</label>
                             <select class="form-control select2" name="model_id" style="width: 100%;">
                                 <option selected="selected">Model</option>

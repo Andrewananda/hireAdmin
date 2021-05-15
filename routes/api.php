@@ -28,5 +28,9 @@ Route::group([
 Route::post('/register', 'ApiController@register')->name('register');
 Route::post('/login', 'ApiController@login')->name('login');
 Route::get('/cars','ApiController@all_cars')->name('cars');
+Route::post('/car_details','ApiController@car_details')->name('car_details');
+Route::post('/popular_car','ApiController@popular_car')->name('popular_car');
+Route::post('/popular_car','ApiController@popular_car')->name('popular_car');
+Route::post('/top_deals','ApiController@top_deals')->name('top_deals');
 
 

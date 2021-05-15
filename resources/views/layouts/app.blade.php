@@ -122,17 +122,17 @@
 <script src="{{ asset('assets/dist/js/demo.js')}}"></script>
 
 <script>
-    function readURL(input, id) {
+    function readURL(input) {
 
         var reader = new FileReader();
 
         reader.onload = function (e) {
-            $(id)
+            $('#blah')
                 .attr('src', e.target.result);
         };
         var total_file = input.files.length;
         for(var i=0;i<total_file;i++) {
-            reader.readAsDataURL(input.files[i]);
+            reader.readAsDataURL(input.files[input]);
         }
 
     }

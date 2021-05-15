@@ -4,11 +4,9 @@ namespace App;
 
 use Illuminate\Database\Eloquent\Model;
 
-class Gallery extends Model
+class HireDuration extends Model
 {
-    protected $fillable = ['car_id', 'image_url'];
-
-    public function cars() {
+    function car() {
         return $this->hasMany(Car::class);
     }
 }

@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Car;
 use App\CarModel;
+use App\HireDuration;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Validator;
 
@@ -11,13 +12,15 @@ class CarController extends Controller
 {
     public function index() {
         $car_models = CarModel::all();
-        return view('cars.add_car', ['car_models'=>$car_models]);
+        $hire_durations = HireDuration::all();
+        return view('cars.add_car', ['car_models'=>$car_models, 'hire_durations'=>$hire_durations]);
     }
     public function addCar(Request $request) {
         $validation = Validator::make($request->all(), [
            'model_id'=>'required',
             'year'=>'required',
             'number_of_seats'=>'required',
+            'hire_duration_id' => 'required',
             'number_plate'=>'required',
             'status'=>'required',
             'price'=>'required',
@@ -45,6 +48,7 @@ class CarController extends Controller
                     $car->number_plate = $request->post('number_plate');
                     $car->status = $request->post('status');
                     $car->price=$request->post('price');
+                    $car->hire_duration_id=$request->post('hire_duration_id');
                     $car->photo = $filenameToStore;
                     $car->save();
                     return redirect()->back()->with(['success'=>'Successfully added car']);
@@ -94,6 +98,55 @@ class CarController extends Controller
             }
         }else{
             return redirect()->back()->with(['error'=>'Car Cannot be found']);
+        }
+    }
+
+    public function add_duration() {
+        return view('duration.add_duration');
+    }
+
+    public function create_duration(Request $request) {
+        $validation = Validator::make($request->all(), [
+            'name'=>'required',
+            'description'=>'nullable'
+        ]);
+
+        if ($validation->fails()){
+            return redirect()->back()->with(['error'=>$validation->errors()]);
+        }else{
+            $duration = new HireDuration();
+            $duration->name = $request->post('name');
+            $duration->description = $request->post('description');
+            $duration->save();
+            return redirect()->back()->with(['success'=>'Added Successfully']);
+        }
+    }
+
+    public function fetch_single_duration($id) {
+        $duration = HireDuration::where(['id'=>$id])->first();
+        if (!$duration) {
+            return redirect()->back()->with(['error'=>'Duration cannot be found']);
+        }else {
+            return view('duration.edit_duration', ['duration'=>$duration]);
+        }
+    }
+
+    public function edit_duration(Request $request, $id) {
+        $duration = HireDuration::where(['id'=>$id])->first();
+        if ($duration){
+            $validation = Validator::make($request->all(), [
+               'name'=>'required',
+               'description'=>'nullable'
+            ]);
+            if ($validation->fails()){
+                return redirect()->back()->with(['error'=>$validation->errors()]);
+            }else {
+                $duration->name = $request->post('name');
+                $duration->description = $request->post('description');
+                return redirect()->back()->with(['success'=>'Created successfully']);
+            }
+        }else{
+            return redirect()->back()->with(['error'=>'Duration not found']);
         }
     }
 }
