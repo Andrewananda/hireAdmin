@@ -32,5 +32,6 @@ Route::post('/car_details','ApiController@car_details')->name('car_details');
 Route::post('/popular_car','ApiController@popular_car')->name('popular_car');
 Route::post('/popular_car','ApiController@popular_car')->name('popular_car');
 Route::post('/top_deals','ApiController@top_deals')->name('top_deals');
+Route::post('/search','ApiController@search')->name('search');
 
 
