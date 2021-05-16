@@ -46,7 +46,7 @@ class CarController extends Controller
                     $car->year = $request->post('year');
                     $car->number_of_seats = $request->post('number_of_seats');
                     $car->number_plate = $request->post('number_plate');
-                    $car->status = $request->post('status');
+                    $car->status = strtolower($request->post('status'));
                     $car->price=$request->post('price');
                     $car->hire_duration_id=$request->post('hire_duration_id');
                     $car->photo = $filenameToStore;
@@ -92,7 +92,7 @@ class CarController extends Controller
                 $car->model_id = $request->post('model_id');
                 $car->year = $request->post('year');
                 $car->number_of_seats = $request->post('number_of_seats');
-                $car->status = $request->post('status');
+                $car->status = strtolower($request->post('status'));
                 $car->update();
                 return redirect()->back()->with(['success'=>'Car updated successfully']);
             }
