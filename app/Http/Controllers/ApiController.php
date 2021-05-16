@@ -180,7 +180,7 @@ class ApiController extends Controller
 
     public function search(Request $request) {
         if (is_numeric($request->post('value'))) {
-            $search = Car::where(['id'=>$request->post('value')])->get();
+            $search = Car::where(['id'=>$request->post('value')])->with(['model','hire_duration'])->get();
         }else {
             //check model
             $valueToLower = strtolower($request->post('value'));
@@ -189,7 +189,7 @@ class ApiController extends Controller
                 ->first();
             $search = Car::query()
                 ->where(['model_id'=>$model->id])
-                ->with('model')
+                ->with(['model', 'hire_duration'])
                 ->get();
         }
         return GeneralResponse::success('success', 'Fetched successfully', count($search), $search);
