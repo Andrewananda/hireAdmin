@@ -4,9 +4,9 @@ namespace App\Http\Controllers;
 
 use App\Booking;
 use App\Car;
+use App\CarModel;
 use App\Enquiry;
 use App\Gallery;
-use App\HireDuration;
 use App\User;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Hash;
@@ -18,6 +18,7 @@ class ApiController extends Controller
     protected function respondWithToken($token)
     {
         return response()->json([
+            'status'=>'success',
             'access_token' => $token,
             'token_type' => 'bearer',
             'expires_in' => auth('api')->factory()->getTTL() * 60,
@@ -177,5 +178,21 @@ class ApiController extends Controller
     }
 
 
+    public function search(Request $request) {
+        if (is_numeric($request->post('value'))) {
+            $search = Car::where(['id'=>$request->post('value')])->get();
+        }else {
+            //check model
+            $valueToLower = strtolower($request->post('value'));
+            $model = CarModel::query()
+                ->where('title', 'LIKE', $valueToLower)
+                ->first();
+            $search = Car::query()
+                ->where(['model_id'=>$model->id])
+                ->with('model')
+                ->get();
+        }
+        return GeneralResponse::success('success', 'Fetched successfully', count($search), $search);
+    }
 
 }
