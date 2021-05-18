@@ -51,6 +51,23 @@ class ApiController extends Controller
         return GeneralResponse::success('success', 'Fetched successfully',count($cars), $cars);
     }
 
+    public function home() {
+        $featured_car = Car::query()
+            ->orderBy('id', 'desc')
+            ->limit(1)
+            ->with(['hire_duration', 'model'])
+            ->get();
+        $top_deals = Car::query()
+            ->orderBy('id', 'desc')
+            ->limit(5)
+            ->with(['hire_duration', 'model'])
+            ->get();
+        $array = array($featured_car, $top_deals);
+        $arrKeys = array("featured_car", "top_deals");
+        $data = array_combine($arrKeys, $array);
+        return GeneralResponse::success('success', 'Fetched successfully', count($data), $data);
+    }
+
     public function top_deals() {
         $cars = Car::query()
             ->orderBy('id', 'desc')
