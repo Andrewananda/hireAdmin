@@ -47,9 +47,17 @@ class UserController extends Controller
         }
     }
 
-
     public function get_users() {
         $users = User::all();
         return view('user.all_users',['users'=>$users]);
+    }
+
+    public function edit_user($id) {
+        $user = User::where(['id'=>$id])->first();
+        if ($user){
+            return view('user.edit_user', ['user'=> $user]);
+        }else {
+            return redirect()->back()->with(['error'=>'User doe snot exist']);
+        }
     }
 }
