@@ -78,7 +78,7 @@
                 </a>
                 <ul class="treeview-menu">
                     <li><a href="{{ route('user.add') }}"><i class="fa fa-clock-o"></i> Add User</a></li>
-
+                    <li><a href="{{ route('user.all') }}"><i class="fa fa-clock-o"></i> All Users</a></li>
                 </ul>
             </li>
 {{--            <li class="treeview">--}}
