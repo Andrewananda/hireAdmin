@@ -18,7 +18,7 @@ Route::get('/', 'HomeController@index')->name('welcome');
 Auth::routes();
 
 Route::get('/home', 'HomeController@index')->name('home');
-Route::get('/enquiry', 'EnquiryController@index')->name('enquiry.add');
+Route::get('/logout', 'HomeController@logout')->name('logout');
 
 //cars
 Route::get('/car', 'CarController@index')->name('car.add');
@@ -48,5 +48,12 @@ Route::get('/car_gallery', 'GalleryController@index')->name('car.add_gallery');
 Route::post('/create_gallery', 'GalleryController@create_gallery')->name('car.create_gallery');
 Route::get('/gallery_all', 'GalleryController@all_car_galleries')->name('car.all_galleries');
 
+//Car Enquiry
+Route::get('/enquiry', 'EnquiryController@index')->name('enquiry.add');
+Route::post('/create_enquiry', 'EnquiryController@create_enquiry')->name('enquiry.create');
 
-Route::get('/logout', 'HomeController@logout')->name('logout');
+//Users
+Route::get('/add_user', 'UserController@index')->name('user.add');
+Route::post('/create_user', 'UserController@create_user')->name('user.create');
+
+
