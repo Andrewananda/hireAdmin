@@ -5,7 +5,7 @@
             <h4 class="box-title">Add Reservation For {{$enquiry->user->name}}</h4>
         </div>
         @include('layouts.message')
-        <form enctype="multipart/form-data" method="post" action="{{ route('user.create') }}">
+        <form enctype="multipart/form-data" method="post" action="{{ route('reservation.add',['id'=>$enquiry->id]) }}">
             @csrf
             <div class="row">
                 <div class="col-md-6">

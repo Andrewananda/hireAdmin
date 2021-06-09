@@ -59,3 +59,6 @@ Route::get('/add_user', 'UserController@index')->name('user.add');
 Route::post('/create_user', 'UserController@create_user')->name('user.create');
 Route::get('/all_users', 'UserController@get_users')->name('user.all');
 Route::get('/edit_user/{id}', 'UserController@edit_user')->name('edit.user');
+
+//Reservation
+Route::post('/add_reservation/{id}', 'ReservationController@add_reservation')->name('reservation.add');
