@@ -51,6 +51,7 @@ Route::get('/gallery_all', 'GalleryController@all_car_galleries')->name('car.all
 //Car Enquiry
 Route::get('/enquiry', 'EnquiryController@index')->name('enquiry.add');
 Route::post('/create_enquiry', 'EnquiryController@create_enquiry')->name('enquiry.create');
+Route::get('/all_enquiries', 'EnquiryController@fetch_enquiries')->name('enquiry.all');
 
 //Users
 Route::get('/add_user', 'UserController@index')->name('user.add');

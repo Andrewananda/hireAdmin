@@ -20,6 +20,7 @@
                 </a>
                 <ul class="treeview-menu">
                     <li><a href="{{ route('enquiry.add') }}"><i class="fa fa-list"></i> Add Enquiry</a></li>
+                    <li><a href="{{ route('enquiry.all') }}"><i class="fa fa-list"></i> All Enquiries</a></li>
                 </ul>
             </li>
 

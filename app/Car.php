@@ -17,4 +17,8 @@ class Car extends Model
     function hire_duration() {
         return $this->belongsTo(HireDuration::class);
     }
+
+    function enquiry(){
+        return $this->hasMany(Enquiry::class);
+    }
 }
