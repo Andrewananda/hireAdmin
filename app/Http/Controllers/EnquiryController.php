@@ -56,6 +56,7 @@ class EnquiryController extends Controller
 
     public function fetch_enquiries() {
         $enquiries = Enquiry::all();
+
         return view('enquiries.all_enquiries', ['enquiries'=>$enquiries]);
     }
 
