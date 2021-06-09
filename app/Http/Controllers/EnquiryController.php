@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Car;
 use App\CarModel;
 use App\Enquiry;
+use App\Reservation;
 use App\User;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Validator;
@@ -56,5 +57,14 @@ class EnquiryController extends Controller
     public function fetch_enquiries() {
         $enquiries = Enquiry::all();
         return view('enquiries.all_enquiries', ['enquiries'=>$enquiries]);
+    }
+
+    public function reserve_car($id) {
+        $enquiry = Enquiry::where(['id'=>$id])->first();
+        if (!$enquiry){
+            return redirect()->back()->with(['error'=>'Enquiry does not exist']);
+        }else {
+            return view('reservations.add_reservation',['enquiry'=>$enquiry]);
+        }
     }
 }

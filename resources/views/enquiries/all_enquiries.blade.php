@@ -29,6 +29,7 @@
                                     <td>{{ $enquiry->date}}</td>
                                     <td>{{ $enquiry->message }}</td>
                                     <td>
+                                        <a class="btn btn-primary" href="{{ route('enquiry.add_reservation',['id'=> $enquiry->id]) }}">Reserve</a>
                                         <a class="btn btn-success" href="{{ route('car.edit_car',['id'=> $enquiry->id]) }}">Edit</a>
                                         <a class="btn btn-danger" href="{{ route('car.delete',['id'=>$enquiry->id]) }}">Delete</a>
                                     </td>
