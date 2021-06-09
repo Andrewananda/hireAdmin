@@ -8,51 +8,48 @@
         <form enctype="multipart/form-data" method="post" action="{{ route('enquiry.create') }}">
             @csrf
             <div class="row">
-                <div class="col-md-6">
-                    <div class="box-body">
-                        <div class="form-group">
-                            <label for="first_name">Plate Number</label>
-                            <input type="text" name="number_plate" class="form-control" id="number_plate" placeholder="Enter car plate number">
-                        </div>
-                    </div>
-                </div>
 
                 <div class="col-md-6">
                     <div class="box-body">
                         <div class="form-group">
-                            <label for="first_name">Number Of Seats</label>
-                            <input type="number" name="number_of_seats" class="form-control" id="number_of_seats" placeholder="Enter number of seats">
-                        </div>
-                    </div>
-                </div>
-
-                <div class="col-md-6">
-                    <div class="box-body">
-                        <div class="form-group">
-                            <label for="first_name">Year</label>
-                            <input type="text" name="year" class="form-control" id="year" placeholder="Enter car year">
-                        </div>
-                    </div>
-                </div>
-
-                <div class="col-md-6">
-                    <div class="box-body">
-                        <div class="form-group">
-                            <label for="first_name">Price</label>
-                            <input type="text" name="price" class="form-control" id="year" placeholder="Enter car price">
-                        </div>
-                    </div>
-                </div>
-
-                <div class="col-md-6">
-                    <div class="box-body">
-                        <div class="form-group">
-                            <label>Status</label>
-                            <select class="form-control select2" name="status" style="width: 100%;">
-                                <option selected="selected">Available</option>
-                                <option>Booked</option>
-                                <option>Hired</option>
+                            <label>User</label>
+                            <select class="form-control select2" name="user_id" id="user_id" style="width: 100%;">
+                                <option selected="selected">User</option>
+                                @foreach($users as $user)
+                                    <option value="{{ $user->id }}">{{$user->name}}</option>
+                                @endforeach
                             </select>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="col-md-6">
+                    <div class="box-body">
+                        <div class="form-group">
+                            <label for="first_name">Date</label>
+                            <input type="date" name="date" class="form-control" id="date" placeholder="Date">
+                        </div>
+                    </div>
+                </div>
+
+                <div class="col-md-6">
+                    <div class="box-body">
+                        <div class="form-group">
+                            <label>Cars</label>
+                            <select class="form-control select2" name="car_id" id="car_id" style="width: 100%;">
+                                <option selected="selected">Car</option>
+                                @foreach($cars as $car)
+                                    <option value="{{ $car->id }}">{{$car->number_plate . " Number of seats " . $car->number_of_seats }}</option>
+                                @endforeach
+                            </select>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="col-md-6">
+                    <div class="box-body">
+                        <div class="form-group">
+                            <textarea placeholder="Enter message" name="message" id="message" rows="10" cols="70"></textarea>
                         </div>
                     </div>
                 </div>
