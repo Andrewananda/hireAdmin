@@ -42,4 +42,32 @@ class ReservationController extends Controller
             }
         }
     }
+
+    public function create_reservation() {
+        $enquiries = Enquiry::all();
+        $cars = Car::where(['status'=>'available'])->get();
+
+        return view('reservations.create_reservation', ['enquiries'=>$enquiries, 'cars'=>$cars]);
+    }
+
+    public function save_reservation(Request $request) {
+        $validation = Validator::make($request->all(), [
+            'enquiry_id'=>'required',
+            'date'=>'required',
+            'car_id'=>'required',
+            'message'=>'nullable'
+        ]);
+        if ($validation->fails()) {
+            return redirect()->back()->with(['error'=>$validation->errors()]);
+        }else {
+            $reservation = new Reservation();
+            $reservation->enquiry_id = $request->post('enquiry_id');
+            $reservation->start_date = $request->post('date');
+            $reservation->end_date = $request->post('date');
+            $reservation->car_id = $request->post('car_id');
+
+            $reservation->save();
+            return redirect()->back()->with(['success'=>'Reservation created successfully']);
+        }
+    }
 }

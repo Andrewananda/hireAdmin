@@ -5,18 +5,18 @@
             <h3 class="box-title">Create Reservation</h3>
         </div>
         @include('layouts.message')
-        <form enctype="multipart/form-data" method="post" action="{{ route('enquiry.create') }}">
+        <form enctype="multipart/form-data" method="post" action="{{ route('reservation.save') }}">
             @csrf
             <div class="row">
 
                 <div class="col-md-6">
                     <div class="box-body">
                         <div class="form-group">
-                            <label>User</label>
+                            <label>Enquiry</label>
                             <select class="form-control select2" name="enquiry_id" id="enquiry_id" style="width: 100%;">
-                                <option selected="selected">Enquiries</option>
+                                <option selected="selected">Enquiry for</option>
                                 @foreach($enquiries as $enquiry)
-                                    <option value="{{ $enquiry->id }}">{{ $enquiry->title}}</option>
+                                    <option value="{{ $enquiry->id }}">{{ $enquiry->user->name}}</option>
                                 @endforeach
                             </select>
                         </div>
