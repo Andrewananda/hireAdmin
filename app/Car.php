@@ -21,4 +21,5 @@ class Car extends Model
     function enquiry(){
         return $this->hasMany(Enquiry::class);
     }
+
 }

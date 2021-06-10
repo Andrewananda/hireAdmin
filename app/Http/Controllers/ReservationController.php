@@ -70,4 +70,9 @@ class ReservationController extends Controller
             return redirect()->back()->with(['success'=>'Reservation created successfully']);
         }
     }
+
+    public function all_reservations() {
+        $reservations = Reservation::with('enquiry')->get();
+        return view('reservations.all_reservations', ['reservations'=>$reservations]);
+    }
 }

@@ -67,3 +67,6 @@ Route::post('/add_reservation/{id}', 'ReservationController@add_reservation')->n
 Route::get('/add_reservation', 'ReservationController@create_reservation')->name('reservation.create');
 Route::get('/all_reservations', 'ReservationController@all_reservations')->name('reservation.all');
 Route::post('/save_reservation', 'ReservationController@save_reservation')->name('reservation.save');
+Route::get('/approve/{id}', 'ReservationController@approve_reservation')->name('reservation.approve');
+Route::get('/delete_reservation/{id}', 'ReservationController@delete_reservation')->name('reservation.delete');
+Route::get('/edit_reservation/{id}', 'ReservationController@edit_reservation')->name('reservation.edit');
