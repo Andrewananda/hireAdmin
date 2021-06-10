@@ -24,6 +24,20 @@
                 </ul>
             </li>
 
+            <li class="treeview">
+                <a href="#">
+                    <i class="fa fa-user"></i>
+                    <span>Reservations</span>
+                    <span class="pull-right-container">
+              <i class="fa fa-angle-left pull-right"></i>
+            </span>
+                </a>
+                <ul class="treeview-menu">
+                    <li><a href="{{ route('reservation.create') }}"><i class="fa fa-list"></i> Create Reservation</a></li>
+                    <li><a href="{{ route('reservation.all') }}"><i class="fa fa-list"></i> All Reservations</a></li>
+                </ul>
+            </li>
+
 
             <li class="treeview">
                 <a href="#">
