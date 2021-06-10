@@ -79,4 +79,19 @@ class EnquiryController extends Controller
             return view('enquiries.edit_enquiry', ['enquiry'=>$enquiry, 'users'=>$users, 'cars'=>$cars]);
         }
     }
+
+    public function edit_enquiry($id, Request $request) {
+        $enquiry = Enquiry::where(['id'=>$id])->first();
+        if (!$enquiry) {
+            return redirect()->back()->with('error', 'Enquiry not found');
+        }else {
+                $enquiry->car_id = $request['car_id'];
+                $enquiry->date = $request['date'];
+                $enquiry->user_id = $request['user_id'];
+                $enquiry->message = $request['message'];
+
+                $enquiry->update();
+                return  redirect()->back()->with('success', 'Enquiry edited successfully');
+            }
+        }
 }

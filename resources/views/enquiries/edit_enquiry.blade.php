@@ -5,7 +5,7 @@
             <h3 class="box-title">Edit Enquiry</h3>
         </div>
         @include('layouts.message')
-        <form enctype="multipart/form-data" method="post" action="{{ route('enquiry.actual_edit', ['id'=>$enquiry->id]) }}">
+        <form enctype="multipart/form-data" method="get" action="{{ route('enquiry.actual_edit', ['id'=>$enquiry->id]) }}">
             @csrf
             <div class="row">
 
