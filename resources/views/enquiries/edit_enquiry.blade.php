@@ -16,7 +16,7 @@
                             <select class="form-control select2" name="user_id" id="user_id" style="width: 100%;">
                                 <option selected="selected">User</option>
                                 @foreach($users as $user)
-                                    <option value="{{ $user->id }}" >@if($user->id == $enquiry->user_id) {{ 'selected' }} @endif</option>
+                                    <option value="{{ $user->id }}" @if($user->id == $enquiry->user_id) selected="selected" @endif >{{ $user->name }}</option>
                                 @endforeach
                             </select>
                         </div>
@@ -39,7 +39,7 @@
                             <select class="form-control select2" name="car_id" id="car_id" style="width: 100%;">
                                 <option selected="selected">Car</option>
                                 @foreach($cars as $car)
-                                    <option value="{{ $car->id }}">{{$car->number_plate . " Number of seats " . $car->number_of_seats }}</option>
+                                    <option value="{{ $car->id }}" @if($car->id == $enquiry->car_id) selected="selected" @endif>{{$car->number_plate . " Number of seats " . $car->number_of_seats }}</option>
                                 @endforeach
                             </select>
                         </div>
