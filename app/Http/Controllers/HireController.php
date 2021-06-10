@@ -26,6 +26,16 @@ class HireController extends Controller
         }
     }
 
+    public function delete_hire_duration($id) {
+        $hire_duration = HireDuration::where(['id'=>$id])->first();
+        if (!$hire_duration){
+            return redirect()->back()->with(['error'=>'Hire duration not found']);
+        }else {
+            $hire_duration->delete();
+            return redirect()->back()->with(['success'=>'Deleted successfully!']);
+        }
+    }
+
     public function save_edit($id, Request $request) {
         $hire_duration = HireDuration::where(['id'=>$id])->first();
         if (!$hire_duration) {
