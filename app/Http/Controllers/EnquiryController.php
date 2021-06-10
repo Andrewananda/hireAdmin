@@ -94,4 +94,17 @@ class EnquiryController extends Controller
                 return  redirect()->back()->with('success', 'Enquiry edited successfully');
             }
         }
+
+        public function delete_enquiry($id) {
+            $enquiry =  Enquiry::where(['id'=>$id])->first();
+            if (!$enquiry){
+                return redirect()->back()->with(['error'=>'Enquiry not found']);
+            }else {
+                $car = Car::where(['id'=>$enquiry->car_id])->first();
+                $car->status = "available";
+                $car->update();
+                $enquiry->delete();
+                return redirect()->back()->with('success', 'Deleted Successfully!');
+            }
+        }
 }

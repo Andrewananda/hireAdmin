@@ -54,6 +54,7 @@ Route::get('/all_enquiries', 'EnquiryController@fetch_enquiries')->name('enquiry
 Route::get('/reserve_car/{id}', 'EnquiryController@reserve_car')->name('enquiry.add_reservation');
 Route::get('/enquiry/{id}', 'EnquiryController@get_enquiry')->name('enquiry.edit');
 Route::get('/edit_enquiry/{id}', 'EnquiryController@edit_enquiry')->name('enquiry.actual_edit');
+Route::get('/delete_enquiry/{id}', 'EnquiryController@delete_enquiry')->name('enquiry.delete');
 
 //Users
 Route::get('/add_user', 'UserController@index')->name('user.add');
