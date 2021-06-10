@@ -79,6 +79,7 @@
                 </a>
                 <ul class="treeview-menu">
                     <li><a href="{{ route('duration.add_duration') }}"><i class="fa fa-clock-o"></i> Add hire duration</a></li>
+                    <li><a href="{{ route('hire.all_hire_durations') }}"><i class="fa fa-clock-o"></i> All hire duration</a></li>
 
                 </ul>
             </li>

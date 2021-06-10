@@ -70,3 +70,6 @@ Route::post('/save_reservation', 'ReservationController@save_reservation')->name
 Route::get('/approve/{id}', 'ReservationController@approve_reservation')->name('reservation.approve');
 Route::get('/delete_reservation/{id}', 'ReservationController@delete_reservation')->name('reservation.delete');
 Route::get('/edit_reservation/{id}', 'ReservationController@edit_reservation')->name('reservation.edit');
+
+//Hire
+Route::get('/all_hire_durations', 'HireController@all_hire_duration')->name('hire.all_hire_durations');
