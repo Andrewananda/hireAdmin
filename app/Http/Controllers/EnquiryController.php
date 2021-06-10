@@ -55,7 +55,7 @@ class EnquiryController extends Controller
     }
 
     public function fetch_enquiries() {
-        $enquiries = Enquiry::all();
+        $enquiries = Enquiry::query()->orderBy('id', 'desc')->get();
 
         return view('enquiries.all_enquiries', ['enquiries'=>$enquiries]);
     }

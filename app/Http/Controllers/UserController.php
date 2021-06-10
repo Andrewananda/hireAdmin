@@ -48,7 +48,7 @@ class UserController extends Controller
     }
 
     public function get_users() {
-        $users = User::all();
+        $users = User::query()->orderBy('id', 'desc')->get();
         return view('user.all_users',['users'=>$users]);
     }
 

@@ -39,7 +39,7 @@ class CarModelController extends Controller
     }
 
     public function all_car_models() {
-        $car_models = CarModel::all();
+        $car_models = CarModel::query()->orderBy('id', 'desc')->get();
         return view('cars.all_car_models',['car_models'=> $car_models]);
     }
 

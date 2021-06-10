@@ -13,7 +13,7 @@ class HireController extends Controller
     }
 
     public function all_hire_duration() {
-        $duratins = HireDuration::all();
+        $duratins = HireDuration::query()->orderBy('id', 'desc')->get();
         return view('hire.all_hire_durations',['durations'=>$duratins]);
     }
 

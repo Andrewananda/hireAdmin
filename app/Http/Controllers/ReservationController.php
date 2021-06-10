@@ -72,7 +72,9 @@ class ReservationController extends Controller
     }
 
     public function all_reservations() {
-        $reservations = Reservation::with('enquiry')->get();
+        $reservations = Reservation::with('enquiry')
+            ->orderBy('id', 'desc')
+            ->get();
         return view('reservations.all_reservations', ['reservations'=>$reservations]);
     }
 }
