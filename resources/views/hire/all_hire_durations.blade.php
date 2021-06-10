@@ -25,8 +25,8 @@
                                     <td>{{ $duration->description }}</td>
                                     <td>{{ $duration->created_at }}</td>
                                     <td>
-                                        <a class="btn btn-success" href="{{ route('enquiry.edit',['id'=>$duration->id]) }}">Edit</a>
-                                        <a class="btn btn-danger" href="{{ route('enquiry.delete',['id'=>$duration->id]) }}">Delete</a>
+                                        <a class="btn btn-success" href="{{ route('hire_duration.edit',['id'=>$duration->id]) }}">Edit</a>
+                                        <a class="btn btn-danger" href="{{ route('hire_duration.delete',['id'=>$duration->id]) }}">Delete</a>
                                     </td>
                                 </tr>
                             @endforeach

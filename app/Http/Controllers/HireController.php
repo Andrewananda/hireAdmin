@@ -15,4 +15,13 @@ class HireController extends Controller
         $duratins = HireDuration::all();
         return view('hire.all_hire_durations',['durations'=>$duratins]);
     }
+
+    public function edit_hire_duration($id) {
+        $hire_duration = HireDuration::where(['id'=>$id])->first();
+        if (!$hire_duration) {
+            return redirect()->back()->with('error', 'Hire duration not found');
+        }else{
+            return view('hire.edit_hire_duration', ['hire_duration'=>$hire_duration]);
+        }
+    }
 }
