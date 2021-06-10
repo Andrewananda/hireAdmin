@@ -75,3 +75,4 @@ Route::get('/edit_reservation/{id}', 'ReservationController@edit_reservation')->
 Route::get('/all_hire_durations', 'HireController@all_hire_duration')->name('hire.all_hire_durations');
 Route::get('/edit_duration/{id}', 'HireController@edit_hire_duration')->name('hire_duration.edit');
 Route::get('/delete_duration/{id}', 'HireController@delete_hire_duration')->name('hire_duration.delete');
+Route::post('/save_edit/{id}', 'HireController@save_edit')->name('hire.save_edit');

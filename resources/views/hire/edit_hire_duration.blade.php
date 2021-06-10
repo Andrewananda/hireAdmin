@@ -4,7 +4,7 @@
         <div class="box-header with-border">
             <h3 class="box-title">Edit Hire Duration</h3>
         </div>
-        <form enctype="multipart/form-data" method="post" action="{{ route('duration.create_duration') }}">
+        <form enctype="multipart/form-data" method="post" action="{{ route('hire.save_edit', ['id'=>$hire_duration->id]) }}">
             @csrf
             <div class="row">
                 @include('layouts.message')
