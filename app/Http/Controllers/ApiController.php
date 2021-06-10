@@ -202,7 +202,7 @@ class ApiController extends Controller
             //check model
             $valueToLower = strtolower($request->post('value'));
             $model = CarModel::query()
-                ->where('title', 'LIKE', $valueToLower)
+                ->where('title', '%LIKE%', $valueToLower)
                 ->first();
             $search = Car::query()
                 ->where(['model_id'=>$model->id])
