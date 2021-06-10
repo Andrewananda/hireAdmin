@@ -68,4 +68,15 @@ class EnquiryController extends Controller
             return view('reservations.add_reservation',['enquiry'=>$enquiry]);
         }
     }
+
+    public function get_enquiry($id) {
+        $enquiry = Enquiry::where(['id'=>$id])->first();
+        $users = User::all();
+        $cars = Car::all();
+        if (!$enquiry){
+            return redirect()->back()->with(['error'=> 'Enquiry not found']);
+        }else {
+            return view('enquiries.edit_enquiry', ['enquiry'=>$enquiry, 'users'=>$users, 'cars'=>$cars]);
+        }
+    }
 }
