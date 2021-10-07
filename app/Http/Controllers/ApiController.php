@@ -125,8 +125,14 @@ class ApiController extends Controller
 
     public function login(Request $request) {
 
-        $credentials = $request->only('email', 'password');
-        if (!$token = auth('api')->attempt($credentials)) {
+        $username = strval($request->post('username'));
+        if (is_numeric($username)) {
+            $valueType = 'phone';
+        }else {
+            $valueType = 'email';
+        }
+
+        if (!$token = auth('api')->attempt([$valueType => $request->post('username'), 'password' =>$request->post('password')])) {
             return response()->json(['error' => 'Unauthorized'], 401);
         }
         return $this->respondWithToken($token);
